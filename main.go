@@ -7,6 +7,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/ruegerj/aoc-2024/day01"
 	"github.com/ruegerj/aoc-2024/pkg/common"
 	"github.com/ruegerj/aoc-2024/pkg/util"
 )
@@ -18,7 +19,7 @@ func main() {
 	fmt.Println(`  /  /_\  \  |  |  |  | |  |          / /  | | | |   / /  |__   _| `)
 	fmt.Println(" /  _____  \\ |  `--'  | |  `----.    / /_  | |_| |  / /_     | |   ")
 	fmt.Println(`/__/     \__\ \______/   \______|   |____|  \___/  |____|    |_|   `)
-	fmt.Println("----------------------------------------------")
+	fmt.Println("-------------------------------------------------------------------")
 	fmt.Println("🎄 Happy Coding & festive season")
 
 	dayArg := os.Args[1]
@@ -37,7 +38,7 @@ func main() {
 	}
 
 	dayRegistry := map[int]common.Day{
-		// 1: day01.Day01{},
+		1: day01.Day01{},
 	}
 	requestedDay := dayRegistry[dayNr]
 

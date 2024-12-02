@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/ruegerj/aoc-2024/day01"
+	"github.com/ruegerj/aoc-2024/day02"
 	"github.com/ruegerj/aoc-2024/pkg/common"
 	"github.com/ruegerj/aoc-2024/pkg/util"
 )
@@ -39,6 +40,7 @@ func main() {
 
 	dayRegistry := map[int]common.Day{
 		1: day01.Day01{},
+		2: day02.Day02{},
 	}
 	requestedDay := dayRegistry[dayNr]
 

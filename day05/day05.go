@@ -15,41 +15,14 @@ func (d Day05) Part1(input string) *common.Solution {
 	rules := parseRules(inputParts[0])
 	manuals := parseManuals(inputParts[1])
 
-	validManuals := make([][]int, 0)
-
-	for _, manual := range manuals {
-		valid := true
-		printedPages := make([]int, 0)
-		for _, page := range manual {
-			printedPages = append(printedPages, page)
-
-			for _, rule := range rules {
-				if page != rule.page {
-					continue
-				}
-
-				valid = !slices.Contains(printedPages, rule.before)
-
-				if !valid {
-					break
-				}
-			}
-
-			if !valid {
-				break
-			}
-
-		}
-
-		if valid {
-			validManuals = append(validManuals, manual)
-		}
-	}
-
 	middlePageSum := 0
 
-	for _, manual := range validManuals {
-		middlePageSum += getMiddlePage(manual)
+	for _, manual := range manuals {
+		isValid := isValidManual(manual, rules)
+
+		if isValid {
+			middlePageSum += getMiddlePage(manual)
+		}
 	}
 
 	return common.NewSolution(1, middlePageSum)
@@ -60,54 +33,16 @@ func (d Day05) Part2(input string) *common.Solution {
 	rules := parseRules(inputParts[0])
 	manuals := parseManuals(inputParts[1])
 
-	invalidManuals := make([][]int, 0)
-
-	for _, manual := range manuals {
-		valid := true
-		printedPages := make([]int, 0)
-		for _, page := range manual {
-			printedPages = append(printedPages, page)
-
-			for _, rule := range rules {
-				if page != rule.page {
-					continue
-				}
-
-				valid = !slices.Contains(printedPages, rule.before)
-
-				if !valid {
-					break
-				}
-			}
-
-			if !valid {
-				break
-			}
-
-		}
-
-		if !valid {
-			invalidManuals = append(invalidManuals, manual)
-		}
-	}
-
 	middlePageSum := 0
 
-	for _, manual := range invalidManuals {
-		slices.SortFunc(manual, func(a, b int) int {
-			for _, r := range rules {
-				if a == r.page && b == r.before {
-					return -1
-				}
+	for _, manual := range manuals {
+		isValid := isValidManual(manual, rules)
 
-				if a == r.before && b == r.page {
-					return 1
-				}
-			}
+		if isValid {
+			continue
+		}
 
-			return 0
-		})
-
+		sortManual(manual, rules)
 		middlePageSum += getMiddlePage(manual)
 	}
 
@@ -117,6 +52,48 @@ func (d Day05) Part2(input string) *common.Solution {
 type rule struct {
 	page   int
 	before int
+}
+
+func sortManual(manual []int, rules []rule) {
+	slices.SortFunc(manual, func(a, b int) int {
+		for _, r := range rules {
+			if a == r.page && b == r.before {
+				return -1
+			}
+
+			if a == r.before && b == r.page {
+				return 1
+			}
+		}
+
+		return 0
+	})
+}
+
+func isValidManual(manual []int, rules []rule) bool {
+	valid := true
+	printedPages := make([]int, 0)
+	for _, page := range manual {
+		printedPages = append(printedPages, page)
+
+		for _, rule := range rules {
+			if page != rule.page {
+				continue
+			}
+
+			valid = !slices.Contains(printedPages, rule.before)
+
+			if !valid {
+				break
+			}
+		}
+
+		if !valid {
+			break
+		}
+	}
+
+	return valid
 }
 
 func getMiddlePage(manual []int) int {

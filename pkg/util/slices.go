@@ -35,12 +35,24 @@ func LastElement[T comparable](slice []T) T {
 	return slice[len(slice)-1]
 }
 
+func AddIndex[T comparable](index int, value T, slice []T) []T {
+	if index == len(slice)-1 {
+		return append(slice, value)
+	}
+
+	return append(slice[:index], append([]T{value}, slice[index:]...)...)
+}
+
 func RemoveIndex[T comparable](index int, slice []T) []T {
 	if index == len(slice)-1 {
 		return slice[:index]
 	}
 
 	return append(slice[:index], slice[index+1:]...)
+}
+
+func Any[T comparable](slice []T, predicate func(T) bool) bool {
+	return !Every(slice, predicate)
 }
 
 func Every[T comparable](slice []T, predicate func(T) bool) bool {
@@ -85,16 +97,6 @@ func Filter[T any](slice []T, filter func(T) bool) []T {
 	}
 
 	return filtered
-}
-
-func Any[T any](slice []T, predicate func(T) bool) bool {
-	for _, item := range slice {
-		if predicate(item) {
-			return true
-		}
-	}
-
-	return false
 }
 
 func Transpose[T any](matrix [][]T) [][]T {

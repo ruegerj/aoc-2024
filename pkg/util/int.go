@@ -1,6 +1,7 @@
 package util
 
 import (
+	"math"
 	"strconv"
 )
 
@@ -85,4 +86,8 @@ func LCM(a, b int, ints ...int) int {
 func Concat(a, b int) int {
 	combined := strconv.Itoa(a) + strconv.Itoa(b)
 	return MustParseInt(combined)
+}
+
+func Digits(num int) int {
+	return int(math.Log10(float64(num))) + 1
 }

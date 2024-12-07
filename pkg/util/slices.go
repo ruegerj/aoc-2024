@@ -1,5 +1,9 @@
 package util
 
+import (
+	"slices"
+)
+
 func SumInts(items []int) int {
 	sum := 0
 
@@ -124,4 +128,22 @@ func DeepCopySlice[T any](slice []T) []T {
 	copy(deepCopy, slice)
 
 	return deepCopy
+}
+
+func Remove[T comparable](slice []T, elemToRemove T) []T {
+	index := slices.Index(slice, elemToRemove)
+
+	if index < 0 {
+		return slices.Clone(slice)
+	}
+
+	return slices.Delete(slice, index, index+1)
+}
+
+func Fill[T any](item T, length int) []T {
+	slice := make([]T, length)
+	for i := 0; i < length; i++ {
+		slice[i] = item
+	}
+	return slice
 }

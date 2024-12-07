@@ -4,6 +4,14 @@ import (
 	"strconv"
 )
 
+func MakeRange(min, max int) []int {
+	rng := make([]int, max-min+1)
+	for i := range rng {
+		rng[i] = min + i
+	}
+	return rng
+}
+
 func MustParseInt(input string) int {
 	number, err := strconv.Atoi(input)
 
@@ -72,4 +80,9 @@ func LCM(a, b int, ints ...int) int {
 	}
 
 	return result
+}
+
+func Concat(a, b int) int {
+	combined := strconv.Itoa(a) + strconv.Itoa(b)
+	return MustParseInt(combined)
 }

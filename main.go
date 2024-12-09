@@ -13,6 +13,7 @@ import (
 	"github.com/ruegerj/aoc-2024/day04"
 	"github.com/ruegerj/aoc-2024/day05"
 	"github.com/ruegerj/aoc-2024/day07"
+	"github.com/ruegerj/aoc-2024/day09"
 	"github.com/ruegerj/aoc-2024/pkg/common"
 	"github.com/ruegerj/aoc-2024/pkg/util"
 )
@@ -49,6 +50,7 @@ func main() {
 		4: day04.Day04{},
 		5: day05.Day05{},
 		7: day07.Day07{},
+		9: day09.Day09{},
 	}
 	requestedDay := dayRegistry[dayNr]
 

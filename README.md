@@ -11,6 +11,7 @@ Solutions for this years [Advent of Code](https://adventofcode.com/2024), implem
 - [Day 07: Bridge Repair](https://adventofcode.com/2024/day/7) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day07/day07.go))
 - [Day 08: Resonant Collinearity](https://adventofcode.com/2024/day/8) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day08/day08.go))
 - [Day 09: Disk Fragmenter](https://adventofcode.com/2024/day/9) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day09/day09.go))
+- [Day 10: Hoof It](https://adventofcode.com/2024/day/10) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day10/day10.go))
 
 ## Usage
 

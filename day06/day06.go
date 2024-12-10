@@ -37,6 +37,7 @@ func (d Day06) Part1(input string) *common.Solution {
 
 func (d Day06) Part2(input string) *common.Solution {
 	current, grid := parseInput(input)
+	origin := current
 	loopStarts := make(map[string]bool)
 	var dir direction = up
 
@@ -53,8 +54,8 @@ func (d Day06) Part2(input string) *common.Solution {
 		}
 
 		next.value = "#"
-		if hasLoop(current, dir.rotateRight(), grid) {
-			loopStarts[key(current, dir.rotateRight())] = true
+		if current != origin && hasLoop(origin, up, grid) {
+			loopStarts[pointKey(next)] = true
 		}
 		next.value = "."
 
@@ -69,7 +70,7 @@ func hasLoop(cur *point, d direction, grid [][]*point) bool {
 
 	for true {
 		// check if map has vector of point & direction
-		if _, visited := path[key(cur, d)]; visited {
+		if _, visited := path[vectorKey(cur, d)]; visited {
 			return true
 		}
 
@@ -84,15 +85,19 @@ func hasLoop(cur *point, d direction, grid [][]*point) bool {
 			continue
 		}
 
-		path[key(cur, d)] = true
+		path[vectorKey(cur, d)] = true
 		cur = next
 	}
 
 	return false
 }
 
-func key(p *point, d direction) string {
-	return fmt.Sprintf("%d%d%d", p.x, p.y, d)
+func vectorKey(p *point, d direction) string {
+	return fmt.Sprintf("%d,%d;%d", p.x, p.y, d)
+}
+
+func pointKey(p *point) string {
+	return fmt.Sprintf("%d,%d", p.x, p.y)
 }
 
 type direction int

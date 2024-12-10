@@ -7,6 +7,7 @@ Solutions for this years [Advent of Code](https://adventofcode.com/2024), implem
 - [Day 03: Mull It Over](https://adventofcode.com/2024/day/3) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day03/day03.go))
 - [Day 04: Ceres Search](https://adventofcode.com/2024/day/4) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day04/day04.go))
 - [Day 05: Print Queue](https://adventofcode.com/2024/day/5) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day05/day05.go))
+- [Day 06: Guard Gallivant](https://adventofcode.com/2024/day/6) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day06/day06.go))
 - [Day 07: Bridge Repair](https://adventofcode.com/2024/day/7) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day07/day07.go))
 - [Day 08: Resonant Collinearity](https://adventofcode.com/2024/day/8) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day08/day08.go))
 - [Day 09: Disk Fragmenter](https://adventofcode.com/2024/day/9) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day09/day09.go))

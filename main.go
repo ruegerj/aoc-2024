@@ -12,6 +12,7 @@ import (
 	"github.com/ruegerj/aoc-2024/day03"
 	"github.com/ruegerj/aoc-2024/day04"
 	"github.com/ruegerj/aoc-2024/day05"
+	"github.com/ruegerj/aoc-2024/day06"
 	"github.com/ruegerj/aoc-2024/day07"
 	"github.com/ruegerj/aoc-2024/day08"
 	"github.com/ruegerj/aoc-2024/day09"
@@ -50,6 +51,7 @@ func main() {
 		3: day03.Day03{},
 		4: day04.Day04{},
 		5: day05.Day05{},
+		6: day06.Day06{},
 		7: day07.Day07{},
 		8: day08.Day08{},
 		9: day09.Day09{},

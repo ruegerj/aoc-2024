@@ -91,3 +91,7 @@ func Concat(a, b int) int {
 func Digits(num int) int {
 	return int(math.Log10(float64(num))) + 1
 }
+
+func Digits64(num int64) int {
+	return int(math.Log10(float64(num))) + 1
+}

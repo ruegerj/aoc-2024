@@ -12,6 +12,7 @@ Solutions for this years [Advent of Code](https://adventofcode.com/2024), implem
 - [Day 08: Resonant Collinearity](https://adventofcode.com/2024/day/8) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day08/day08.go))
 - [Day 09: Disk Fragmenter](https://adventofcode.com/2024/day/9) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day09/day09.go))
 - [Day 10: Hoof It](https://adventofcode.com/2024/day/10) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day10/day10.go))
+- [Day 11: Plutonian Pebbles](https://adventofcode.com/2024/day/11) ([code](https://github.com/ruegerj/aoc-2024/blob/main/day11/day11.go))
 
 ## Usage
 

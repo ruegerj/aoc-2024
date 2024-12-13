@@ -1,6 +1,7 @@
 package util
 
 import (
+	"iter"
 	"slices"
 )
 
@@ -144,6 +145,14 @@ func Fill[T any](item T, length int) []T {
 	slice := make([]T, length)
 	for i := 0; i < length; i++ {
 		slice[i] = item
+	}
+	return slice
+}
+
+func IterToSlice[T any](iter iter.Seq[T]) []T {
+	slice := make([]T, 0)
+	for elem := range iter {
+		slice = append(slice, elem)
 	}
 	return slice
 }
